@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
@@ -15,14 +16,20 @@ module.exports = {
     bundle: getEntrySources(['./src/index']),
   },
   output: {
-    publicPath: '/dist/',
-    filename: 'bundle.js',
+    publicPath: '/',
+    filename: process.env.NODE_ENV !== 'production' ?
+      'bundle.js' :
+      '[name].[hash].js',
     path: path.join(__dirname, 'dist'),
   },
   plugins: process.env.NODE_ENV !== 'production' ?
     [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        inject: 'body'
+      })
     ] :
     [
       new webpack.optimize.OccurenceOrderPlugin(),
@@ -36,6 +43,10 @@ module.exports = {
           warnings: false,
         },
       }),
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        inject: 'body'
+      })
     ],
   module: {
     preLoaders: [
