@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
@@ -9,34 +10,48 @@ function getEntrySources(sources) {
   return sources;
 }
 
+const basePlugins = [
+  new webpack.DefinePlugin({
+    __DEV__: process.env.NODE_ENV !== 'production',
+    __PRODUCTION__: process.env.NODE_ENV === 'production',
+  }),
+  new HtmlWebpackPlugin({
+    template: './index.html',
+    inject: 'body',
+  }),
+];
+
+const devPlugins = [
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoErrorsPlugin(),
+];
+
+const prodPlugins = [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      warnings: false,
+    },
+  }),
+];
+
+const plugins = basePlugins
+  .concat(process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins);
+
+
 module.exports = {
   devtool: process.env.NODE_ENV !== 'production' ? 'eval-source-map' : '',
   entry: {
     bundle: getEntrySources(['./src/index']),
   },
   output: {
-    publicPath: '/dist/',
-    filename: 'bundle.js',
+    publicPath: '/',
+    filename: process.env.NODE_ENV !== 'production' ?
+      'bundle.js' :
+      '[name].[hash].js',
     path: path.join(__dirname, 'dist'),
   },
-  plugins: process.env.NODE_ENV !== 'production' ?
-    [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
-    ] :
-    [
-      new webpack.optimize.OccurenceOrderPlugin(),
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify('production'),
-        },
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          warnings: false,
-        },
-      }),
-    ],
+  plugins: plugins,
   module: {
     preLoaders: [
       {

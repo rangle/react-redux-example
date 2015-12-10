@@ -23,11 +23,9 @@ const storageConfig = {
 
 function configureStore(initialState) {
   const store = compose(
-    applyMiddleware(
-      promiseMiddleware,
-      thunk,
-      logger,
-    ),
+  __DEV__
+  ? applyMiddleware(promiseMiddleware, thunk, logger)
+  : applyMiddleware(promiseMiddleware, thunk),
     reduxReactRouter({
       routes,
       history,
