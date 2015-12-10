@@ -23,11 +23,9 @@ const storageConfig = {
 
 function configureStore(initialState) {
   const store = compose(
-    applyMiddleware(
-      promiseMiddleware,
-      thunk,
-      logger,
-    ),
+    process.env.NODE_ENV !== 'production'
+      ? applyMiddleware( promiseMiddleware, thunk, logger)  // Dev Middleware
+      : applyMiddleware( promiseMiddleware, thunk),         // Production Middleware
     reduxReactRouter({
       routes,
       history,
