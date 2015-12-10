@@ -3,11 +3,3 @@
 *::after {
   box-sizing: border-box;
 }
-
-body {
-  font-family: var(--font-family);
-  margin: 0px;
-  padding: 0px;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
-}

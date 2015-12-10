@@ -1,10 +1,10 @@
-# react-redux-seed
+# react-redux-starter
 
-> Rangle.io official React + Redux seed
+> Rangle.io official React + Redux starter
 
 ## Getting Started
 ```bash
-$ git clone https://github.com/rangle/react-redux-seed
+$ git clone https://github.com/rangle/react-redux-starter
 $ npm install
 ```
 

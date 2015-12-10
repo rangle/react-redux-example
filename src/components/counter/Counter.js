@@ -1,35 +1,37 @@
 import React from 'react';
 
+import Button from '../ui/Button';
+
 const Counter = ({ counter, increment, decrement }) => {
   return (
     <div className="flex">
       <div className="flex-auto flex-center center">
-        <button
-          style={ styles.baseBtn }
+        <Button
+          style={ styles.squareButton }
           className="btn btn-primary bg-black"
           onClick={ decrement }>
           -
-        </button>
+        </Button>
       </div>
 
       <div className="flex-auto flex-center center h1">
-        { ` ${ counter } ` }
+        { counter }
       </div>
 
       <div className="flex-auto flex-center center">
-        <button
-          style={ styles.baseBtn }
+        <Button
+          style={ styles.squareButton }
           className="btn btn-primary"
           onClick={ increment }>
           +
-        </button>
+        </Button>
       </div>
     </div>
   );
 };
 
 const styles = {
-  baseBtn: {
+  squareButton: {
     width: 48,
     height: 48,
   },

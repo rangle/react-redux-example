@@ -1,4 +1,4 @@
-import usersMock from '../utils/mock/users.json';
+import usersMock from './mock/users.json';
 
 export function login(username, password) {
   return new Promise((resolve, reject) => {
@@ -10,7 +10,13 @@ export function login(username, password) {
     );
 
     if (isValid) {
-      setTimeout(() => resolve(username, password), 750);
+      setTimeout(() => resolve({
+        token: '1234-5678-9101-1213',
+        profile: {
+          firstName: 'Jane',
+          lastName: 'Smith',
+        },
+      }), 750);
     } else {
       setTimeout(() => reject(username, password), 750);
     }

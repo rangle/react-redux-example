@@ -1,11 +1,13 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { IndexRoute, Router, Route } from 'react-router';
+
+import App from '../containers/App';
+import AboutPage from '../containers/AboutPage';
 import CounterPage from '../containers/CounterPage';
-import LoginPage from '../containers/LoginPage';
 
 export default (
-  <Router>
-    <Route path="/" component={ CounterPage } />
-    <Route path="/login" component={ LoginPage }/>
+  <Router path="/" component={ App }>
+    <IndexRoute component={ CounterPage } />
+    <Route path="/about" component={ AboutPage }/>
   </Router>
 );
