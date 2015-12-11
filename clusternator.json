@@ -1,0 +1,7 @@
+{
+  "projectId": "react-redux-starter",
+  "private": [
+    ".private"
+  ],
+  "deploymentsDir": ".private/deployments"
+}

@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "description": "A boiler-plate setup for React/Redux applications",
   "engines": {
-    "node": "4.x"
+    "node": "4.x",
+    "npm": ">=3"
   },
   "scripts": {
     "postinstall": "npm run clean; npm run build;",
-    "build": "NODE_ENV=production webpack -p",
+    "build": "NODE_ENV=production; webpack -p",
     "clean": "rimraf dist coverage",
     "cover": "istanbul cover _mocha -- --opts ./mocha.opts 'src/tests/*.test.js'",
     "dev": "nodemon server.js",
