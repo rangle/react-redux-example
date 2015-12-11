@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "npm run clean; npm run build;",
-    "build": "NODE_ENV=production webpack -p",
+    "build": "NODE_ENV=production; webpack -p",
     "clean": "rimraf dist coverage",
     "cover": "istanbul cover _mocha -- --opts ./mocha.opts 'src/tests/*.test.js'",
     "dev": "nodemon server.js",
