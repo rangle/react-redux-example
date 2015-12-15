@@ -9,6 +9,6 @@ cd $DIR
 # up to project root
 cd ..
 
-gpg --passphrase ${CLUSTERNATOR_SHARED_KEY} --output ../clusternator.tar.gz --decrypt ../clusternator.tar.gz.asc
-tar xfz ../clusternator.tar.gz
-rm ../clusternator.tar.gz
+gpg --passphrase ${CLUSTERNATOR_SHARED_KEY} --output ./clusternator.tar.gz --decrypt ./clusternator.tar.gz.asc
+tar xfz ./clusternator.tar.gz
+rm ./clusternator.tar.gz
