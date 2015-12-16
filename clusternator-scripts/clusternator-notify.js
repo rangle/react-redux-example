@@ -5,11 +5,11 @@ const querystring = require('querystring'),
 
 const KEY = process.env.CLUSTERNATOR_SHARED_KEY,
       AUTH = process.env.CLUSTERNATOR_AUTH,
+      HOST = process.env.CLUSTERNATOR_HOST,
       PR = process.env.CIRCLE_BUILD_NUM,
       REPO = process.env.CIRCLE_PROJECT_REPONAME,
       IMAGE = `rafkhan/${REPO}:pr-${PR}`,
-      HOST = 'rangleapp.io',
-      CLUSTERNATOR = `the-clusternator-alpha.${HOST}`
+      CLUSTERNATOR = HOST.replace(/\/$/, ""),
       PORT = 80,
       PATH = '/0.0.1/pr/create',
       APPDEF = path.join(

@@ -72,6 +72,7 @@ SHARED KEY: abc123
 Add the following environment variables to your cirleCI setup.
 
 - CLUSTERNATOR_HOST (should be same as webhook endpoint)
+- CLUSTERNATOR_AUTH
 - CLUSTERNATOR_SHARED_KEY
 - DOCKER_EMAIL
 - DOCKER_USER
