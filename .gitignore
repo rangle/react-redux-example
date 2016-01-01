@@ -28,3 +28,7 @@ node_modules
 
 # Build directory
 dist
+
+.private
+clusternator.tar.gz
+gpg-pass.txt
