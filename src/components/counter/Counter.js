@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Button from '../ui/Button';
+
+/**
+ * A React component that displays the current counter value, and
+ * allows the value to be incremented and decremented.
+ *
+ * Example usage:
+ *
+ * ```
+ * renderExample() {
+ *   return (
+ *     <Counter
+ *       counter={ counter }
+ *       increment={ increaseCounter }
+ *       decrement={ decreaseCounter } />
+ *   );
+ * }
+ * ```
+ */
 
 const Counter = ({ counter, increment, decrement }) => {
   return (
@@ -28,6 +46,22 @@ const Counter = ({ counter, increment, decrement }) => {
       </div>
     </div>
   );
+};
+
+Counter.displayName = 'Counter';
+Counter.propTypes = {
+  /**
+   * The current counter value.
+   */
+  counter: PropTypes.number.isRequired,
+  /**
+   * Function to increment the counter value.
+   */
+  increment: PropTypes.func.isRequired,
+  /**
+   * Function to decrement the counter value.
+   */
+  decrement: PropTypes.func.isRequired,
 };
 
 const styles = {

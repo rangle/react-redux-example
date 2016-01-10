@@ -1,5 +1,25 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
+/**
+ * A React component that wraps the NavigatorItem menu.
+ *
+ * Example usage:
+ *
+ * ```
+ * renderExample() {
+ *   return (
+ *     <Navigator>
+ *       <NavigatorItem>
+ *         <Link to="/">Counter</Link>
+ *       </NavigatorItem>
+ *       <NavigatorItem>
+ *         <Link to="/about">About Us</Link>
+ *       </NavigatorItem>
+ *     </Navigator>
+ *   );
+ * }
+ * ```
+ */
 const Navigator = ({ children }) => {
   return (
     <div
@@ -8,6 +28,14 @@ const Navigator = ({ children }) => {
       { children }
     </div>
   );
+};
+
+Navigator.displayName = 'Navigator';
+Navigator.propTypes = {
+  /**
+   * Content of Navigator menu
+   */
+  children: PropTypes.array.isRequired,
 };
 
 const styles = {
