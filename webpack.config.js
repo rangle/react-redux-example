@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
@@ -24,6 +25,9 @@ const basePlugins = [
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
+  new WebpackNotifierPlugin({
+    title: 'React Redux Starter',
+  }),
 ];
 
 const prodPlugins = [

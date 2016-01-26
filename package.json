@@ -32,7 +32,8 @@
     "mocha": "^2.3.3",
     "nodemon": "^1.8.1",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.5.0"
+    "webpack-hot-middleware": "^2.5.0",
+    "webpack-notifier": "^1.2.1"
   },
   "dependencies": {
     "babel": "^5.5.8",
