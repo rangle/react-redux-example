@@ -4,12 +4,14 @@ const Input = ({
   type,
   placeholder,
   fieldDefinition,
+  ...props,
 }) => (
   <input
     className="block col-12 mb1 input"
     type={ type }
     placeholder={ placeholder }
-    { ...fieldDefinition } />
+    { ...fieldDefinition }
+    { ...props} />
 );
 
 Input.propTypes = {

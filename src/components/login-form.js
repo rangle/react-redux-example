@@ -35,29 +35,29 @@ const LoginForm = ({
 }) => (
   <Form handleSubmit={ handleSubmit }>
     <Alert isVisible={ isPending }>Loading...</Alert>
-    <Alert isVisible={ hasError } status="error">Invalid username and password</Alert>
+    <Alert id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
 
     <FormGroup>
-      <FormLabel>Username</FormLabel>
-      <Input type="text" fieldDefinition={ username } />
-      <FormError isVisible={ username.touched && username.error }>
+      <FormLabel id="qa-uname-label">Username</FormLabel>
+      <Input type="text" fieldDefinition={ username } id="qa-uname-input" />
+      <FormError id="qa-uname-validation" isVisible={ username.touched && username.error }>
         { username.error }
       </FormError>
     </FormGroup>
 
     <FormGroup>
-      <FormLabel>Password</FormLabel>
-      <Input type="password" fieldDefinition={ password } />
-      <FormError isVisible={ password.touched && password.error }>
+      <FormLabel id="qa-password-label">Password</FormLabel>
+      <Input type="password" fieldDefinition={ password } id="qa-password-input" />
+      <FormError id="qa-password-validation" isVisible={ password.touched && password.error }>
         { password.error }
       </FormError>
     </FormGroup>
 
     <FormGroup>
-      <Button type="submit" className="mr1">
+      <Button type="submit" className="mr1" id="qa-login-button">
         Login
       </Button>
-      <Button onClick={ resetForm } type="reset" className="bg-red">
+      <Button onClick={ resetForm } type="button" className="bg-red" id="qa-clear-button">
         Clear
       </Button>
     </FormGroup>

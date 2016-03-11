@@ -3,11 +3,20 @@ import classNames from 'classnames';
 
 const Button = ({
   children,
-  className,
+  className = '',
+  style = {},
+  ...props,
   type = 'button',
   onClick,
-}) => {
-  const buttonClasses = classNames('btn', 'btn-primary', className);
+}) => (
+  <button
+    type={ type }
+    className={ `btn btn-primary ${ className }` }
+    style={{ ...styles.base, ...style }} {...props}
+        onClick={ onClick }>
+    { children }
+  </button>
+);
 
   return (
     <button
@@ -24,6 +33,7 @@ Button.propTypes = {
   className: React.PropTypes.string,
   type: React.PropTypes.oneOf(['button', 'submit', 'reset']),
   onClick: React.PropTypes.func,
+  id: React.PropTypes.string,
 };
 
 Button.defaultProps = {
