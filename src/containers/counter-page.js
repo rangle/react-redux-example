@@ -21,13 +21,15 @@ function mapDispatchToProps(dispatch) {
 
 const CounterPage = ({ counter, increaseCounter, decreaseCounter }) => {
   return (
-    <Container size={2} center>
-      <h2 className="center caps">Counter</h2>
+    <Container>
+      <Column className="col-4">
+        <h1 className="center" id="qa-counter-heading">Counter</h1>
 
-      <Counter
-        counter={ counter }
-        increment={ increaseCounter }
-        decrement={ decreaseCounter } />
+        <Counter
+          counter={ counter }
+          increment={ increaseCounter }
+          decrement={ decreaseCounter } />
+      </Column>
     </Container>
   );
 };

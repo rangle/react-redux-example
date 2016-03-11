@@ -1,7 +1,7 @@
 import React from 'react';
 
-const FormGroup = ({ children }) => (
-  <div className="py2">
+const FormGroup = ({ children, style = {}, className = '', ...props}) => (
+  <div className={ `p2 ${ className }` } style={{ ...styles.base, ...style }} {...props}>
     { children }
   </div>
 );

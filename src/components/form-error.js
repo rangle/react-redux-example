@@ -1,11 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const FormError = ({ children, isVisible }) => {
-  const formErrorClasses = classNames('bold', 'black', { 'hide': !isVisible });
+const FormError = ({ children, isVisible, style = {}, className = '', ...props}) => {
+  const visibleClass = isVisible ? 'block' : 'hide';
 
   return (
-    <div className={ formErrorClasses }>
+    <div
+      className={ `${ className } bold ${ visibleClass } black` }
+      style={{ ...styles.base, ...style }} {...props}>
       { children }
     </div>
   );
