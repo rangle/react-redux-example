@@ -81,7 +81,7 @@
     "postcss-loader": "^0.8.0",
     "radium": "^0.17.0",
     "react": "^0.14.7",
-    "react-addons-test-utils": "^0.14.3",
+    "react-addons-test-utils": "^0.14.8",
     "react-dom": "^0.14.7",
     "react-hot-loader": "^1.3.0",
     "react-redux": "^4.0.6",
