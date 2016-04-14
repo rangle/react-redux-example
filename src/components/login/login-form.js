@@ -6,7 +6,7 @@ import FormGroup from '../form/form-group';
 import FormLabel from '../form/form-label';
 import FormError from '../form/form-error';
 import Input from '../form/input';
-import Button from '../button';
+import Button from '../button/button';
 import Alert from '../alert';
 
 const validate = values => {

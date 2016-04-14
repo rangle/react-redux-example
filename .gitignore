@@ -37,3 +37,5 @@ dist
 
 # E2E test output
 e2e/robot/test_results
+
+.idea
