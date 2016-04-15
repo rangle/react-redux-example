@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser, logoutUser } from '../actions/session';
 
 import { Link } from 'react-router';
-import Button from '../components/button';
+import Button from '../components/button/button';
 import Content from '../components/content';
 import LoginModal from '../components/login/login-modal';
 import Logo from '../components/logo';

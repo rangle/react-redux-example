@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './button';
+import Button from './button/button';
 
 function Counter({ counter, increment, decrement }) {
   return (
