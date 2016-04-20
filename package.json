@@ -20,7 +20,10 @@
     "pretest": "npm run clean && npm run lint",
     "test": "nyc --reporter=lcov --reporter=text-summary mocha",
     "posttest": "npm run cover",
-    "test:watch": "mocha --watch"
+    "test:watch": "mocha --watch",
+    "storybook": "start-storybook -p 9001 -c ./src/.storybook",
+    "storybook:build": "build-storybook -o .storybook-build -c ./src/.storybook",
+    "storybook:deploy": "bash deploy.sh"
   },
   "nyc": {
     "exclude": [
@@ -31,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "@kadira/storybook": "^1.16.0",
     "autoprefixer": "^6.3.3",
     "autoprefixer-core": "^6.0.1",
     "babel": "^6.5.2",
