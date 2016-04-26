@@ -22,7 +22,12 @@
     "test:watch": "mocha --watch"
   },
   "nyc": {
-    "include": [""],
+    "exclude": [
+      "**/*.test.js",
+      "test/entry.js",
+      "server/*",
+      "dist/*"
+    ],
     "lines": 80,
     "functions": 80,
     "statements": 80,

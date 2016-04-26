@@ -3,7 +3,7 @@
   "env": {
     "test": {
       "plugins": ["__coverage__", {
-        "only": "src/"
+        "ignore": ""
       }]
     }
   }
