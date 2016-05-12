@@ -1,4 +1,4 @@
-import { login } from '../api/login';
+import { login } from '../api/auth/';
 
 import {
   LOGIN_USER_PENDING,
@@ -10,8 +10,10 @@ import {
 
 export function loginUser() {
   return (dispatch, getState) => {
-    const username = getState().form.login.username.value;
-    const password = getState().form.login.password.value;
+    const user = {
+      username: getState().form.login.username.value,
+      password: getState().form.login.password.value,
+    };
 
     return dispatch({
       types: [
@@ -20,7 +22,7 @@ export function loginUser() {
         LOGIN_USER_ERROR,
       ],
       payload: {
-        promise: login(username, password)
+        promise: login(user)
           .then((res) => {
             dispatch({
               type: FORM_RESET,
