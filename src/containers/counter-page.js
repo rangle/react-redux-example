@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { increment, decrement } from '../actions/counter';
+import { increment, decrement } from '../ducks/counter';
 
 import Counter from '../components/counter';
 import Container from '../components/container';

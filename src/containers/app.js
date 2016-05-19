@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { loginUser, logoutUser } from '../actions/session';
+import { loginUser, logoutUser } from '../ducks/session';
 
 import { Link } from 'react-router';
 import Button from '../components/button';
