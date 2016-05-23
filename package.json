@@ -10,29 +10,24 @@
     "prebuild": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack -p",
     "clean": "rimraf dist/ coverage/",
-    "cover": "nyc check-coverage --lines 80 --functions 80 --branches 80",
     "dev:server": "cross-env NODE_ENV=development PORT=3000 nodemon --use_strict server/node-server.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info",
     "dev": "concurrently -r 'npm run dev:client' 'npm run dev:server'",
-    "lint": "npm run lint-js && npm run lint-css",
+    "lint": "concurrently 'npm run lint-js' 'npm run lint-css'",
     "lint-css": "stylelint './src/**/*.css'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "postinstall": "npm run build",
     "start": "cross-env NODE_ENV=production node --use_strict server/node-server.js",
-    "pretest": "npm run clean coverage/ && npm run lint",
-    "test": "nyc --reporter=lcov --reporter=text-summary mocha",
-    "posttest": "nyc check-coverage",
+    "pretest": "npm run clean & npm run lint",
+    "test": "nyc -r lcov -r text-summary --all --require babel-register mocha",
+    "posttest": "nyc check-coverage --lines 80 --statements 80 --branches 80 --functions 80",
     "test:watch": "mocha --watch"
   },
   "nyc": {
-    "exclude": [
-      "**/*.test.js",
-      "test/entry.js"
-    ],
-    "lines": 80,
-    "statements": 80,
-    "branches": 80,
-    "functions": 80
+    "include": [
+      "src/!(store/logger.js)",
+      "server/**"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -42,7 +37,6 @@
     "babel-core": "^6.4.0",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.1",
-    "babel-plugin-__coverage__": "^0.111111.11",
     "babel-plugin-transform-react-constant-elements": "^6.8.0",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-preset-es2015": "^6.3.13",
