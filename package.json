@@ -83,7 +83,7 @@
     "html-webpack-plugin": "^2.9.0",
     "immutable": "^3.7.5",
     "json-loader": "^0.5.3",
-    "mocha": "^2.5.0",
+    "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
     "nyc": "^6.4.3",
     "passport": "^0.3.2",
