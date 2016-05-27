@@ -11,7 +11,7 @@ function Container({ children, size = 1, center, ...props }) {
   });
 
   return (
-    <div data-testid={props.testid} className={ containerClasses }>
+    <div data-testid={ props.testid } className={ containerClasses }>
       { children }
     </div>
   );

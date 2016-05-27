@@ -45,5 +45,3 @@ ${BROWSER}    Chrome
 *** Keywords ***
 TEST SETUP
     Open Browser To Page    ${LOGIN_URL}    ${BROWSER}
-    #THIS WILL SLOW DOWN ROBOT SO YOU CAN SEE WHAT IS HAPPENING
-    #Set Selenium Speed    1

@@ -23,7 +23,7 @@ function Alert({
 
   return (
     <div
-      data-testid={testid}
+      data-testid={ testid }
       className={ alertClasses }
       { ...props }>
       { children }

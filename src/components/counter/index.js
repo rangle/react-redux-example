@@ -3,7 +3,7 @@ import Button from '../button';
 
 function Counter({ counter, increment, decrement, ...props }) {
   return (
-    <div className="flex" data-testid={props.testid}>
+    <div className="flex" data-testid={ props.testid }>
       <Button data-ref="decrementButton" className="bg-black col-2"
         onClick={ decrement }>
         -

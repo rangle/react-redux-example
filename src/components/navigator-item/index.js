@@ -15,7 +15,7 @@ function NavigatorItem({
   });
 
   return (
-    <div data-testid={ props.testid }className={ navItemClasses }>
+    <div data-testid={ props.testid } className={ navItemClasses }>
       { children }
     </div>
   );

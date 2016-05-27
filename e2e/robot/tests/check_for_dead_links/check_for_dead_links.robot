@@ -100,4 +100,3 @@ Log Url Locations
 Log To File
     [Arguments]    ${message}
     Append To File    ${FAILOUTPUTFILE}    ${message}
-
