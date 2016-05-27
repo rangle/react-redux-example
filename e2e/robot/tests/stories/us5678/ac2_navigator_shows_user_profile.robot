@@ -25,6 +25,7 @@ SUITE SETUP
 Check User Profile
     [Arguments]    ${username}    ${password}    ${profile}
     Login    ${username}    ${password}
+    Wait While Login Is Loading
     Verify Navigator User Profile    ${profile}
 
 Logout

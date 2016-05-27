@@ -31,4 +31,6 @@ ${PASSWORD}    pass
 TEST SETUP
     Open Browser To Page    ${LOGIN_URL}    ${BROWSER}
     Login    ${USERNAME}    ${PASSWORD}
+    Wait While Login Is Loading
+    Sleep    2
     Navigate To    Counter
