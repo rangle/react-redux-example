@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../../reusable_components/rs_notification_dialog.robot
+Resource    ../../../lib/browser/rs_browser.robot
 
 *** Variables ***
 ${LOGIN LOADING FIELD ID}    alert-loading

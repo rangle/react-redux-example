@@ -14,7 +14,9 @@
 test_cases=("01 Able To Login With Valid Credentials")
 #echo ${test_cases[@]}
 
-test_location="tests"
-output_dir="results"
+DIR="./e2e/robot"
 
-bash exec/run_configurable.bash --test_location $test_location --output_dir $output_dir --test_cases "${test_cases[@]}"
+test_location="$DIR/tests/stories/us1234"
+output_dir="$DIR/results"
+
+bash $DIR/exec/run_configurable.bash --test_location $test_location --output_dir $output_dir --test_cases "${test_cases[@]}"
