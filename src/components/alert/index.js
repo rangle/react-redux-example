@@ -12,6 +12,7 @@ function Alert({
   children,
   isVisible,
   status = 'info',
+  testid = 'alert-dialog',
   ...props,
 }) {
   const alertClasses = classNames(['p2', 'bold'], {
@@ -22,6 +23,7 @@ function Alert({
 
   return (
     <div
+      data-testid={testid}
       className={ alertClasses }
       { ...props }>
       { children }
@@ -33,6 +35,7 @@ Alert.propTypes = {
   children: React.PropTypes.node,
   isVisible: React.PropTypes.bool,
   status: React.PropTypes.oneOf(['info', 'warning', 'success', 'error']),
+  testid: React.PropTypes.string,
 };
 
 export default Alert;

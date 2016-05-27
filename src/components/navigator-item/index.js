@@ -6,6 +6,7 @@ function NavigatorItem({
   isVisible = true,
   mr = false,
   ml = false,
+  ...props,
 }) {
   const navItemClasses = classNames('truncate', {
     hide: !isVisible,
@@ -14,7 +15,7 @@ function NavigatorItem({
   });
 
   return (
-    <div className={ navItemClasses }>
+    <div data-testid={ props.testid }className={ navItemClasses }>
       { children }
     </div>
   );
@@ -25,6 +26,7 @@ NavigatorItem.propTypes = {
   isVisible: React.PropTypes.bool,
   mr: React.PropTypes.bool,
   ml: React.PropTypes.bool,
+  testid: React.PropTypes.string,
 };
 
 export default NavigatorItem;

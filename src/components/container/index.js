@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-function Container({ children, size = 1, center }) {
+function Container({ children, size = 1, center, ...props }) {
   const containerClasses = classNames('clearfix', 'px1', {
     'max-width-1': size === 1,
     'max-width-2': size === 2,
@@ -11,7 +11,7 @@ function Container({ children, size = 1, center }) {
   });
 
   return (
-    <div className={ containerClasses }>
+    <div data-testid={props.testid} className={ containerClasses }>
       { children }
     </div>
   );
@@ -21,6 +21,7 @@ Container.propTypes = {
   children: React.PropTypes.node,
   size: React.PropTypes.oneOf([1, 2, 3, 4]),
   center: React.PropTypes.bool,
+  testid: React.PropTypes.string,
 };
 
 export default Container;

@@ -2,7 +2,7 @@ import React from 'react';
 
 function FormGroup({ children, ...props}) {
   return (
-    <div className="py2" {...props}>
+    <div data-testid={props.testid} className="py2" {...props}>
       { children }
     </div>
   );
@@ -10,6 +10,7 @@ function FormGroup({ children, ...props}) {
 
 FormGroup.propTypes = {
   children: React.PropTypes.node,
+  testid: React.PropTypes.string,
 };
 
 export default FormGroup;

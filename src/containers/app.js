@@ -28,8 +28,8 @@ function mapDispatchToProps(dispatch) {
 function App({ children, session, login, logout }) {
   const token = session.get('token', false);
   const isLoggedIn = token && token !== null && typeof token !== 'undefined';
-  const firstName = session.getIn(['user', 'firstName'], '');
-  const lastName = session.getIn(['user', 'lastName'], '');
+  const firstName = session.getIn(['user', 'first'], '');
+  const lastName = session.getIn(['user', 'last'], '');
 
   return (
     <div>
@@ -38,7 +38,7 @@ function App({ children, session, login, logout }) {
         isPending={ session.get('isLoading', false) }
         hasError={ session.get('hasError', false) }
         isVisible={ !isLoggedIn } />
-      <Navigator>
+      <Navigator testid="navigator">
         <NavigatorItem mr>
           <Logo />
         </NavigatorItem>
@@ -50,7 +50,7 @@ function App({ children, session, login, logout }) {
         </NavigatorItem>
         <div className="flex flex-auto"></div>
         <NavigatorItem isVisible={ isLoggedIn } mr>
-          <b>{ `${ firstName } ${ lastName }` }</b>
+          <div data-testid="user-profile" className="h3">{ `${ firstName } ${ lastName }` }</div>
         </NavigatorItem>
         <NavigatorItem isVisible={ isLoggedIn }>
           <Button onClick={ logout } className="bg-red white">

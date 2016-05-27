@@ -35,10 +35,10 @@ function LoginForm({
 }) {
   return (
     <Form handleSubmit={ handleSubmit }>
-      <Alert isVisible={ isPending }>Loading...</Alert>
-      <Alert id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
+      <Alert data-testid="alert-loading" isVisible={ isPending }>Loading...</Alert>
+      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
 
-      <FormGroup>
+      <FormGroup testid="login-username">
         <FormLabel id="qa-uname-label">Username</FormLabel>
         <Input type="text" fieldDefinition={ username } id="qa-uname-input"/>
         <FormError id="qa-uname-validation" isVisible={ !!(username.touched && username.error) }>
@@ -46,7 +46,7 @@ function LoginForm({
         </FormError>
       </FormGroup>
 
-      <FormGroup>
+      <FormGroup testid="login-password">
         <FormLabel id="qa-password-label">Password</FormLabel>
         <Input type="password" fieldDefinition={ password } id="qa-password-input" />
         <FormError id="qa-password-validation" isVisible={ !!(password.touched && password.error) }>
@@ -54,7 +54,7 @@ function LoginForm({
         </FormError>
       </FormGroup>
 
-      <FormGroup>
+      <FormGroup testid="login-submit">
         <Button type="submit" className="mr1" id="qa-login-button">
           Login
         </Button>

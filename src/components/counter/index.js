@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '../button';
 
-function Counter({ counter, increment, decrement }) {
+function Counter({ counter, increment, decrement, ...props }) {
   return (
-    <div className="flex">
+    <div className="flex" data-testid={props.testid}>
       <Button data-ref="decrementButton" className="bg-black col-2"
         onClick={ decrement }>
         -
@@ -25,6 +25,7 @@ Counter.propTypes = {
   counter: React.PropTypes.number,
   increment: React.PropTypes.func,
   decrement: React.PropTypes.func,
+  testid: React.PropTypes.func,
 };
 
 export default Counter;

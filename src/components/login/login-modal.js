@@ -5,9 +5,9 @@ import LoginForm from './login-form';
 
 function LoginModal({ isVisible, isPending, hasError, onSubmit }) {
   return (
-    <Modal isVisible={ isVisible }>
+    <Modal testid="login-form" isVisible={ isVisible }>
       <ModalContent>
-        <h1 className="mt0">Login</h1>
+        <h1 data-testid="login-header" className="mt0">Login</h1>
 
         <LoginForm
           isPending={ isPending }

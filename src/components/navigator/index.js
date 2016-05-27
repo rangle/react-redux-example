@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Navigator({ children }) {
+function Navigator({ children, ...props }) {
   return (
-    <nav className="flex items-center p1 bg-white border-bottom">
+    <nav data-testid={props.testid} className="flex items-center p1 bg-white border-bottom">
       { children }
     </nav>
   );
@@ -10,6 +10,7 @@ function Navigator({ children }) {
 
 Navigator.propTypes = {
   children: React.PropTypes.node,
+  testid: React.PropTypes.string,
 };
 
 export default Navigator;
