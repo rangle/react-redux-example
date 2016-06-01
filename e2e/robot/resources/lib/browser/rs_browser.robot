@@ -12,16 +12,13 @@ ${RETRY EVERY}       2s
 *** Keywords ***
 Open Browser To Page
     [Arguments]    ${url}    ${browser}=Chrome    ${browser delay}=${BROWSER.DELAY}    ${selenium delay}=${SELENIUM.DELAY}
-    Run Keyword If    '${BROWSERSTACK.ENABLE}' == '${FALSE}'    Open Browser    ${url}    browser=${browser}
-    Run Keyword If    '${BROWSERSTACK.ENABLE}' == '${TRUE}' and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    BrowserStack Run On Desktop    ${url}    ${browser}
-    Run Keyword If    '${BROWSERSTACK.ENABLE}' == '${TRUE}' and '${BROWSERSTACK.PLATFORM}' == 'MOBILE'    BrowserStack Run On Mobile    ${url}    ${browser}
-    Maximize Browser Window
+    ${BROWSERSTACK.ENABLE}=    Convert To Boolean    ${BROWSERSTACK.ENABLE}
+    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${FALSE}    Open Browser    ${url}    browser=${browser}
+    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    BrowserStack Run On Desktop    ${url}
+    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' != 'DESKTOP'    BrowserStack Run On Mobile    ${url}
+    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    Maximize Browser Window
+    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${FALSE}    Maximize Browser Window
     Set Browser Delay    ${browser delay}    ${selenium delay}
-
-Open Browser To Page On BrowserStack
-    [Documentation]    This should not be used directly. Use "Open Browser To Page" and set global variable "{USE BROWSERSTACK}" to true
-    [Arguments]    ${url}    ${browser}=Chrome
-    Open Browser    ${url}    browser=${browser}    remote_url=${BROWSERSTACK.REMOTE URL}    desired_capabilities=browserstack.local:${BROWSERSTACK.LOCAL},browser:${BROWSERSTACK.BROWSER},browser_version:${BROWSERSTACK.BROWSER VERSION},os:${BROWSERSTACK.OS}, os_version:${BROWSERSTACK.OS VERSION},resolution:${BROWSERSTACK.RESOLUTION}
 
 Input Text Flex
     [Documentation]    This will type out desired text a character at a time. This is required for textfield which are linked to form validation in reaction which cause some events to be overwritten.

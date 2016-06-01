@@ -43,6 +43,14 @@ case $key in
     exclude_tags="--exclude $2"
     shift # past argument
     ;;
+    -bs|--browserstack)
+    shift # past argument name
+    browserstack=()
+    for E in "${@}"; do
+        browserstack+=("-v ${E}")
+    done
+    shift # past argument
+    ;;
     --default)
     test_location="tests"
     output_dir="results"
@@ -57,11 +65,13 @@ case $key in
 esac
 shift # past argument or value
 done
+echo "Execution Arguments:"
 echo test_location  = "${test_location}"
 echo output_dir     = "${output_dir}"
 echo test_cases     = "${test_cases[@]}"
 echo test_variables = "${test_variables[@]}"
 echo include_tags   = "${include_tags}"
 echo exclude_tags   = "${exclude_tags}"
+echo browserstack   = "${browserstack[@]}"
 echo "Running Robot Tests:"
-robot $output_dir "${test_variables[@]}" $include_tags $exclude_tags "${test_cases[@]}" $test_location
+robot $output_dir "${test_variables[@]}" "${browserstack[@]}" $include_tags $exclude_tags "${test_cases[@]}" $test_location
