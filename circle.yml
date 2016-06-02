@@ -17,19 +17,19 @@ test:
     - npm run build
     - npm start:
         background: true
-    #To Run on BrowserStack using local url we must run browserstack local client
-    #clients can be found at https://www.browserstack.com/automate/python#setting-local-tunnel
+    #uncomment when running on browser stack using http://localhost
+    #DON'T FORGET TO REPLACE THE BROWSERSTACK KEY
+    # download and unzip browserstack local client
     #- curl -O https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip
-    #- unzip ./BrowserStackLocal-linux-x64.zip
+    #- unzip ./BrowserStackLocal-linux-x64.zip -d browserstack
     #- rm ./BrowserStackLocal-linux-x64.zip
-    #- ./BrowserStackLocal -force -forceLocal <browserstack key>
-    #     background: true
-    #Now run tests on browser stack
-    #- ./e2e/robot/exec/run_all_on_browserstack_desktop_ie.bash
-    #RUN ONLY SMOKE TESTS (Tests tagged with Smoke)
-    #- ./e2e/robot/exec/run_smoke.bash
-    #RUN ALL TESTS except for ones tagged with Disabled
-    - ./e2e/robot/exec/run_all_excluding_disabled.bash
+    #- touch ./e2e/robot/results/browserstack.txt
+    #- ./browserstack/BrowserStackLocal -force -forcelocal REPLACE_THIS_WITH_BROWSERSTACK_KEY &> ./e2e/robot/results/browserstack.txt:
+    #    background: true
+    #- sleep 5
+    #- ./e2d/robot/exec/run_all_on_browserstack_desktop_ie.bash
+    #- ./e2e/robot/exec/run_smoke_on_local_chrome.bash
+    - ./e2e/robot/exec/run_all_on_local_chrome.bash
 
 general:
   artifacts:

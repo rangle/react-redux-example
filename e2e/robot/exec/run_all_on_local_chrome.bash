@@ -3,7 +3,7 @@
 DIR="./e2e/robot" #path to the robot project
 
 test_location="$DIR/tests" #the location where all tests are
-output_dir="$DIR/results/device/browserstack/android" #location where result logs will go
+output_dir="$DIR/results/desktop/local/chrome" #location where result logs will go
 
 test_cases=() #add individual tests bellow
 #test_cases+=("Test Name")
@@ -21,14 +21,7 @@ test_variables+=("BROWSER:Chrome")
 test_variables+=("LOGIN_URL:http://localhost:8080")
 
 browserstack=()
-browserstack+=("BROWSERSTACK.ENABLED:True") #if running on Browserstack then set to true; false otherwise
-browserstack+=("BROWSERSTACK.LOCAL:True") #if running against http://localhost then this should be True; false otherwise
-browserstack+=("BROWSERSTACK.KEY:PUT YOUR KEY HERE")
-browserstack+=("BROWSERSTACK.USERNAME:PUT YOUR USERNAME HERE")
-browserstack+=("BROWSERSTACK.PLATFORM:MOBILE")
-browserstack+=("BROWSERSTACK.DEVICE:Samsung Galaxy S5")
-browserstack+=("BROWSERSTACK.BROWSER.NAME:android")
-browserstack+=("BROWSERSTACK.DEVICE.ORIENTATION:landscape")
+browserstack+=("BROWSERSTACK.ENABLED:False")
 
 #add valid robot argument tags to all arrays
 browserstack=("${browserstack[@]/#/-v }")

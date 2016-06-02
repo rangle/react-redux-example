@@ -12,12 +12,12 @@ ${RETRY EVERY}       2s
 *** Keywords ***
 Open Browser To Page
     [Arguments]    ${url}    ${browser}=Chrome    ${browser delay}=${BROWSER.DELAY}    ${selenium delay}=${SELENIUM.DELAY}
-    ${BROWSERSTACK.ENABLE}=    Convert To Boolean    ${BROWSERSTACK.ENABLE}
-    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${FALSE}    Open Browser    ${url}    browser=${browser}
-    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    BrowserStack Run On Desktop    ${url}
-    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' != 'DESKTOP'    BrowserStack Run On Mobile    ${url}
-    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    Maximize Browser Window
-    Run Keyword If    ${BROWSERSTACK.ENABLE} == ${FALSE}    Maximize Browser Window
+    ${BROWSERSTACK.ENABLE}=    Convert To Boolean    ${BROWSERSTACK.ENABLED
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${FALSE}    Open Browser    ${url}    browser=${browser}
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    BrowserStack Run On Desktop    ${url}
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' != 'DESKTOP'    BrowserStack Run On Mobile    ${url}
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    Maximize Browser Window
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${FALSE}    Maximize Browser Window
     Set Browser Delay    ${browser delay}    ${selenium delay}
 
 Input Text Flex

@@ -3,13 +3,15 @@
 DIR="./e2e/robot" #path to the robot project
 
 test_location="$DIR/tests" #the location where all tests are
-output_dir="$DIR/results/device/browserstack/android" #location where result logs will go
+output_dir="$DIR/results/desktop/ie" #location where result logs will go
 
 test_cases=() #add individual tests bellow
-#test_cases+=("Test Name")
+test_cases+=("Dummy Test")
+test_cases+=("Dummy Smoke")
 
 include_tags=() #add tests based on Tags below
-#include_tags+=("Tag Name")
+include_tags+=("Smoke")
+include_tags+=("Bug")
 
 exclude_tags=()
 exclude_tags+=("Disabled")
@@ -18,17 +20,19 @@ exclude_tags+=("Manual")
 
 test_variables=() #add test variables to be overwritten
 test_variables+=("BROWSER:Chrome")
-test_variables+=("LOGIN_URL:http://localhost:8080")
+test_variables+=("SERVER:http://reddit.com")
 
 browserstack=()
 browserstack+=("BROWSERSTACK.ENABLED:True") #if running on Browserstack then set to true; false otherwise
 browserstack+=("BROWSERSTACK.LOCAL:True") #if running against http://localhost then this should be True; false otherwise
-browserstack+=("BROWSERSTACK.KEY:PUT YOUR KEY HERE")
-browserstack+=("BROWSERSTACK.USERNAME:PUT YOUR USERNAME HERE")
-browserstack+=("BROWSERSTACK.PLATFORM:MOBILE")
-browserstack+=("BROWSERSTACK.DEVICE:Samsung Galaxy S5")
-browserstack+=("BROWSERSTACK.BROWSER.NAME:android")
-browserstack+=("BROWSERSTACK.DEVICE.ORIENTATION:landscape")
+browserstack+=("BROWSERSTACK.KEY:YOUR BROWSER STACK HEY GOES HERE")
+browserstack+=("BROWSERSTACK.USERNAME:YOUR BROWSER STACK USERNAME GOES HERE")
+browserstack+=("BROWSERSTACK.PLATFORM:DESKTOP")
+browserstack+=("BROWSERSTACK.OS:Windows")
+browserstack+=("BROWSERSTACK.OS.VERSION:10")
+browserstack+=("BROWSERSTACK.RESOLUTION:1920x1080")
+browserstack+=("BROWSERSTACK.BROWSER:IE")
+browserstack+=("BROWSERSTACK.BROWSER.VERSION:11.0")
 
 #add valid robot argument tags to all arrays
 browserstack=("${browserstack[@]/#/-v }")

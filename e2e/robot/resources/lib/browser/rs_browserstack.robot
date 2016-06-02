@@ -39,5 +39,7 @@ BrowserStack Run On Mobile
     Set To Dictionary    ${DESIRED_CAPABILITIES}    browserName           ${BROWSERSTACK.BROWSER.NAME}
     Set To Dictionary    ${DESIRED_CAPABILITIES}    device                ${BROWSERSTACK.DEVICE}
     Set To Dictionary    ${DESIRED_CAPABILITIES}    deviceOrientation     ${BROWSERSTACK.DEVICE.ORIENTATION}
+    Set To Dictionary    ${DESIRED_CAPABILITIES}    browserstack.local    ${BROWSERSTACK.LOCAL}
+    Set To Dictionary    ${DESIRED_CAPABILITIES}    browserstack.debug    ${BROWSERSTACK.DEBUG}
     Log    Running Mobile with caps = ${DESIRED_CAPABILITIES}
     Open Browser    ${url}    remote_url=${BROWSERSTACK.REMOTE URL}     desired_capabilities=${DESIRED_CAPABILITIES}
