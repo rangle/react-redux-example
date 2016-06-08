@@ -94,7 +94,7 @@
     "postcss-modules-local-by-default": "^1.0.1",
     "react": "^15.0.1",
     "react-addons-test-utils": "^15.1.0",
-    "react-dom": "^15.0.1",
+    "react-dom": "^15.1.0",
     "react-hot-loader": "^1.3.0",
     "react-redux": "^4.4.2",
     "react-router": "^2.4.1",
