@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import logger from './logger';
 import rootReducer from '../reducers';
+import transit from 'transit-immutable-js';
 
 function configureStore(initialState) {
   const store = compose(
@@ -57,11 +58,12 @@ function _getStorageConfig() {
   return {
     key: 'react-redux-seed',
     serialize: (store) => {
-      return store && store.session ?
-        JSON.stringify(store.session.toJS()) : store;
+      return store && store.session
+        ? transit.toJSON(store.session)
+        : store;
     },
-    deserialize: (state) => ({
-      session: state ? fromJS(JSON.parse(state)) : fromJS({}),
+    deserialize: (str) => ({
+      session: str ? transit.fromJSON(str) : fromJS({}),
     }),
   };
 }
