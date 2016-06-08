@@ -1,13 +1,8 @@
 import assert from 'assert';
 import fireAction from '../utils/fire-action';
-import sessionReducer from '../reducers/session';
+import sessionReducer from './session';
 
-import {
-  LOGIN_USER_PENDING,
-  LOGIN_USER_SUCCESS,
-  LOGIN_USER_ERROR,
-  LOGOUT_USER,
-} from '../../src/constants/index';
+import * as SessionConstants from './session';
 
 import { Map } from 'immutable';
 
@@ -22,7 +17,7 @@ describe('Session Reducer', () => {
 
   describe('on LOGIN_USER_PENDING', () => {
     it('should set loading to true', () => {
-      state = fireAction(sessionReducer, state, LOGIN_USER_PENDING);
+      state = fireAction(sessionReducer, state, SessionConstants.LOGIN_USER_PENDING);
       assert(state.get('isLoading'));
       assert(state.get('token') === null);
     });
@@ -30,7 +25,9 @@ describe('Session Reducer', () => {
 
   describe('on LOGIN_USER_SUCCESS', () => {
     it('should save the username', () => {
-      state = fireAction(sessionReducer, state, LOGIN_USER_SUCCESS, { token: 1234 });
+      state = fireAction(sessionReducer, state, SessionConstants.LOGIN_USER_SUCCESS, {
+        token: 1234,
+      });
 
       assert(!state.get('isLoading'));
       assert(!state.get('hasError'));
@@ -40,7 +37,7 @@ describe('Session Reducer', () => {
 
   describe('on LOGIN_USER_ERROR', () => {
     it('should save the username', () => {
-      state = fireAction(sessionReducer, state, LOGIN_USER_ERROR);
+      state = fireAction(sessionReducer, state, SessionConstants.LOGIN_USER_ERROR);
 
       assert(!state.get('isLoading'));
       assert(state.get('hasError'));
@@ -50,7 +47,7 @@ describe('Session Reducer', () => {
 
   describe('on LOGOUT_USER', () => {
     it('should save the username', () => {
-      state = fireAction(sessionReducer, state, LOGOUT_USER);
+      state = fireAction(sessionReducer, state, SessionConstants.LOGOUT_USER);
 
       assert(!state.get('isLoading'));
       assert(!state.get('hasError'));
