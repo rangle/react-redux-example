@@ -1,5 +1,5 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { fromJS } from 'immutable';
+import * as Redux from 'redux';
+import * as I from 'immutable';
 import persistState from 'redux-localstorage';
 import thunk from 'redux-thunk';
 import promiseMiddleware from '../middleware/promise-middleware';
@@ -10,42 +10,41 @@ import rootReducer from '../reducers';
 import transit from 'transit-immutable-js';
 
 function configureStore(initialState) {
-  const store = compose(
-    _getMiddleware(),
-    ..._getEnhancers()
-  )(createStore)(rootReducer, initialState);
+  const createStore = Redux.compose(...getEnhancers())(Redux.createStore);
+  const store = createStore(rootReducer, initialState);
 
-  _enableHotLoader(store);
+  enableHotReload(store);
   return store;
 }
 
-function _getMiddleware() {
-  let middleware = [
+function getEnhancers() {
+  const enhancers = [
+    Redux.applyMiddleware(...getMiddleware()),
+    persistState('session', getReduxLocalStorageConfig()),
+  ];
+
+  if (__DEV__ && window.devToolsExtension) {
+    return [...enhancers, window.devToolsExtension() ];
+  }
+
+  return enhancers;
+}
+
+function getMiddleware() {
+  const middleware = [
     routerMiddleware(browserHistory),
     promiseMiddleware,
     thunk,
   ];
 
   if (__DEV__) {
-    middleware = [...middleware, logger];
+    return [...middleware, logger];
   }
 
-  return applyMiddleware(...middleware);
+  return middleware;
 }
 
-function _getEnhancers() {
-  let enhancers = [
-    persistState('session', _getStorageConfig()),
-  ];
-
-  if (__DEV__ && window.devToolsExtension) {
-    enhancers = [...enhancers, window.devToolsExtension() ];
-  }
-
-  return enhancers;
-}
-
-function _enableHotLoader(store) {
+function enableHotReload(store) {
   if (__DEV__ && module.hot) {
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers');
@@ -54,16 +53,16 @@ function _enableHotLoader(store) {
   }
 }
 
-function _getStorageConfig() {
+function getReduxLocalStorageConfig() {
   return {
     key: 'react-redux-seed',
     serialize: (store) => {
-      return store && store.session
-        ? transit.toJSON(store.session)
-        : store;
+      return transit.toJSON(
+        store && store.session ? store.session : I.Map(),
+      );
     },
-    deserialize: (str) => ({
-      session: str ? transit.fromJSON(str) : fromJS({}),
+    deserialize: (serialized) => ({
+      session: serialized ? transit.fromJSON(serialized) : I.Map(),
     }),
   };
 }
