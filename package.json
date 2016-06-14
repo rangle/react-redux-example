@@ -85,7 +85,7 @@
     "json-loader": "^0.5.3",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
-    "nyc": "^6.4.3",
+    "nyc": "^6.6.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "postcss-cssnext": "^2.4.0",
