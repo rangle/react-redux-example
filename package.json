@@ -42,7 +42,7 @@
     "babel-core": "^6.4.0",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.1",
-    "babel-plugin-__coverage__": "^0.111111.11",
+    "babel-plugin-__coverage__": "^11.0.0",
     "babel-plugin-transform-react-constant-elements": "^6.8.0",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-preset-es2015": "^6.3.13",
