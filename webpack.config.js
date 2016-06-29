@@ -36,7 +36,7 @@ module.exports = {
       { test: /\.js$/, loader: 'eslint-loader' },
     ],
     loaders: [
-      { test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader' },
+      { test: /\.css$/, loader: 'style-loader!css?-minimize!postcss' },
       { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg)$/, loader: 'url-loader?prefix=img/&limit=5000' },
