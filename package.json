@@ -20,7 +20,7 @@
     "start": "cross-env NODE_ENV=production node --use_strict server/node-server.js",
     "pretest": "npm run clean coverage/ && npm run lint",
     "test": "karma start --singleRun true",
-    "posttest": "istanbul check-coverage --statement 75 --branch 55 --function 55",
+    "posttest": "istanbul check-coverage --statement 80 --branch 70 --function 50",
     "test:watch": "karma start --singleRun false"
   },
   "devDependencies": {
@@ -53,7 +53,6 @@
     "basscss-type-scale": "^1.0.5",
     "basscss-typography": "^3.0.3",
     "body-parser": "^1.15.1",
-    "chai": "^3.4.0",
     "classnames": "^2.2.3",
     "concurrently": "^2.0.0",
     "copy-webpack-plugin": "^3.0.1",
@@ -62,9 +61,6 @@
     "cssnano": "^3.7.1",
     "denodeify": "^1.2.1",
     "enzyme": "^2.2.0",
-    "es5-shim": "^4.5.6",
-    "es6-promise": "^3.2.1",
-    "es6-shim": "^0.35.0",
     "eslint": "2.13.1",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-react": "^5.2.2",

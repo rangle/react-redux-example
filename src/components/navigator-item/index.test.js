@@ -1,21 +1,21 @@
-import { assert } from 'chai';
 import React from 'react';
+
 import { render, shallow } from 'enzyme';
+
 import NavigatorItem from './index';
 
 describe('NavigatorItem', () => {
   it('should render a NavigationItem and its children', () => {
     const wrapper = render(<NavigatorItem>Hello world</NavigatorItem>);
 
-    assert.isOk(wrapper.children().length, 'component not rendered');
-    assert.strictEqual(wrapper.text(), 'Hello world',
-      'child contents not found');
+    expect(wrapper.children().length).toBe(1);
+    expect(wrapper.text()).toBe('Hello world');
   });
 
   it('should be hidden', () => {
     const wrapper = render(<NavigatorItem isVisible={false}>Hello world</NavigatorItem>);
 
-    assert.isOk(wrapper.find('.hide').length, '"hide" css class not found');
+    expect(wrapper.find('.hide').length).toBe(1);
   });
 
   it('should have left and right margins', () => {
@@ -24,7 +24,8 @@ describe('NavigatorItem', () => {
         Hello world
       </NavigatorItem>
     );
-    assert(wrapper.find('.mr2'), 'right margin class not added');
-    assert(wrapper.find('.ml2'), 'left margin class not added');
+
+    expect(wrapper.find('.mr2')).not.toBeNull();
+    expect(wrapper.find('.ml2')).not.toBeNull();
   });
 });

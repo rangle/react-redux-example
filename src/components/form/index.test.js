@@ -1,28 +1,26 @@
-import { assert } from 'chai';
 import React from 'react';
+
 import { render, shallow } from 'enzyme';
+
 import Form from './index';
 
 describe('Form', () => {
   it('should create a form', () => {
-    const wrapper = render(
-      <Form>Hello world</Form>
-    );
+    const wrapper = render(<Form>Hello world</Form>);
 
-    assert.isOk(wrapper.children().length, 'formForm not created');
-    assert.isOk(wrapper.find('form').length, 'formForm not created');
-    assert.strictEqual(wrapper.text(), 'Hello world',
-      'child contents not found');
+    expect(wrapper.children().length).toBe(1);
+    expect(wrapper.find('form').length).toBe(1);
+    expect(wrapper.text()).toBe('Hello world');
   });
 
   it('should respond to submit events', () => {
-    const onSubmit = sinon.spy();
-    const wrapper = shallow(
-      <Form handleSubmit={onSubmit} />
-    );
+    const onSubmit = jasmine.createSpy('onSubmit');
+    const wrapper = shallow(<Form handleSubmit={onSubmit} />);
     const eventStub = { preventDefault: () => {} };
     wrapper.find('form').simulate('submit', eventStub);
-    assert.isTrue(onSubmit.calledOnce, 'form not submitted');
+
+    expect(onSubmit).toHaveBeenCalled();
+    expect(onSubmit.calls.count()).toBe(1);
   });
 
   // NOTE(cbond): This test is wild unsafe ... it attempts to monkey-patch

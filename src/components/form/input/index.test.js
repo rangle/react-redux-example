@@ -1,43 +1,31 @@
-import { assert } from 'chai';
 import React from 'react';
+
 import { render } from 'enzyme';
+
 import Input from './index';
 
 describe('Input', () => {
   it('should create an input', () => {
-    // Render the Input component
     const props = {
       placeholder: 'sample placeholder',
     };
+
     const wrapper = render(
       <div id="root">
         <Input { ...props } />
       </div>
     );
-    assert.isOk(wrapper.children().length, 'Unable to render component');
+    expect(wrapper.children().length).toBe(1);
 
     // Find the input
     const inputElement = wrapper.find('input');
-    assert.isOk(inputElement.length, 'Unable to render input');
+    expect(inputElement.length).toBe(1);
 
     // Validate the props were set
-    assert.isNotNull(
-      inputElement.attr('type'),
-      'type-attribute not found'
-    );
-    assert.strictEqual(
-      inputElement.attr('type'), 'text',
-      'type-attribute is not text by default'
-    );
-    assert.isNotNull(
-      inputElement.attr('placeholder'),
-      'placeholder-attribute not found'
-    );
-    assert.strictEqual(
-      inputElement.attr('placeholder'),
-      props.placeholder,
-      'placeholder-attribute has incorrect value'
-    );
+    expect(inputElement.attr('type')).not.toBeNull();
+    expect(inputElement.attr('type')).toBe('text');
+    expect(inputElement.attr('placeholder')).not.toBeNull();
+    expect(inputElement.attr('placeholder')).toBe(props.placeholder);
   });
 
   it('should create a password field', () => {
@@ -47,9 +35,7 @@ describe('Input', () => {
       </div>
     );
     const inputElement = wrapper.find('input');
-    assert.strictEqual(
-      inputElement.attr('type'), 'password',
-      'input is not of type password'
-    );
+
+    expect(inputElement.attr('type')).toBe('password');
   });
 });
