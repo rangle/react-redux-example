@@ -1,4 +1,5 @@
 const testing = process.env.TEST;
+const production = process.env.NODE_ENV === 'production';
 
 exports.eslint = {
   test: /\.jsx?$/,
@@ -10,11 +11,19 @@ exports.css = {
   loader: 'style-loader!css?-minimize!postcss',
 };
 
+const jsloaders = [];
+if (testing) {
+  jsloaders.push('babel?sourceMaps=both');
+} else if (production) {
+  jsloaders.push('babel?sourceMaps=true');
+} else {
+  jsloaders.push('react-hot-loader');
+  jsloaders.push('babel?sourceMaps=both');
+}
+
 exports.js = {
   test: /\.jsx?$/,
-  loaders: testing
-    ? ['babel?sourceMaps=both' ]
-    : ['react-hot-loader', 'babel?sourceMaps=both'],
+  loaders: jsloaders,
   exclude: /node_modules/,
 };
 
