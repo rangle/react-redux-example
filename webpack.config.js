@@ -27,9 +27,7 @@ module.exports = {
     chunkFilename: '[id].chunk.js',
   },
 
-  devtool: process.env.NODE_ENV === 'production' ?
-    'source-map' :
-    'inline-source-map',
+  devtool: !devmode ? 'source-map' : 'inline-source-map',
 
   plugins: plugins,
 
