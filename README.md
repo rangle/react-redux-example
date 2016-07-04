@@ -45,9 +45,8 @@ $ npm run test:watch
 ```
 
 #### Coverage
-```bash
-$ npm run cover
-```
+Code coverage is generated automatically after a `npm run test` run (but not
+`test:watch`).
 
 #### Connecting to remote APIs
 
