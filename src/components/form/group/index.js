@@ -1,9 +1,9 @@
 import React from 'react';
 
-function FormGroup({ children, ...props}) {
+function FormGroup({ children, testid, ...props}) {
   return (
-    <div data-testid={props.testid} className="py2" {...props}>
-      { children }
+    <div data-testid={testid} className="py2" {...props}>
+      {children}
     </div>
   );
 }

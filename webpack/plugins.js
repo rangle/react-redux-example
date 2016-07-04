@@ -8,6 +8,7 @@ const path = require('path');
 const basePlugins = [
   new webpack.DefinePlugin({
     __DEV__: process.env.NODE_ENV !== 'production',
+    __TEST__: JSON.stringify(process.env.TEST),
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
   new HtmlWebpackPlugin({
@@ -33,6 +34,7 @@ const prodPlugins = [
     { name: 'vendor', path: [path.join(__dirname, '..', 'node_modules/')] },
   ]),
   new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
     compress: {
       warnings: false,
     },

@@ -11,19 +11,20 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './store/routes';
 import configureStore from './store/configure-store';
 
- // Global styles
 import './styles/index.css';
 
 const store = configureStore({});
 const history = syncHistoryWithStore(browserHistory, store);
 
-ReactDOM.render(
-  <div>
-    <Provider store={ store }>
-      <Router history={ history }>
-        { routes }
-      </Router>
-    </Provider>
-  </div>,
-  document.getElementById('root')
-);
+if (!__TEST__) {
+  ReactDOM.render(
+    <div>
+      <Provider store={ store }>
+        <Router history={ history }>
+          { routes }
+        </Router>
+      </Provider>
+    </div>,
+    document.getElementById('root')
+  );
+}

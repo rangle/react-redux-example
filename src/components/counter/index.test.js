@@ -1,7 +1,6 @@
 import { assert } from 'chai';
 import React from 'react';
 import { shallow, render } from 'enzyme';
-import sinon from 'sinon';
 import Counter from './index';
 
 describe('counter', () => {

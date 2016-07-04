@@ -2,9 +2,12 @@ const path = require('path');
 const proxy = require('./server/webpack-dev-proxy');
 const plugins = require('./webpack/plugins');
 const postcss = require('./webpack/postcss');
+const loaders = require('./webpack/loaders');
+
+const devmode = process.env.NODE_ENV !== 'production';
 
 function getEntrySources(sources) {
-  if (process.env.NODE_ENV !== 'production') {
+  if (devmode) {
     sources.push('webpack-hot-middleware/client');
   }
 
@@ -12,7 +15,9 @@ function getEntrySources(sources) {
 }
 
 module.exports = {
-  entry: { app: getEntrySources(['./src/index.js']) },
+  entry: {
+    app: getEntrySources(['./src/index.js']),
+  },
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -22,27 +27,36 @@ module.exports = {
     chunkFilename: '[id].chunk.js',
   },
 
-  devtool: 'source-map',
+  devtool: process.env.NODE_ENV === 'production' ?
+    'source-map' :
+    'inline-source-map',
+
   plugins: plugins,
 
   devServer: {
     historyApiFallback: { index: '/' },
     proxy: Object.assign({}, proxy(), { '/api/*': 'http://localhost:3000' }),
+    inline: true,
   },
 
   module: {
     preLoaders: [
-      { test: /\.js$/, loader: 'source-map-loader' },
-      { test: /\.js$/, loader: 'eslint-loader' },
+      loaders.eslint,
     ],
     loaders: [
-      { test: /\.css$/, loader: 'style-loader!css?-minimize!postcss' },
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.(png|jpg|jpeg|gif|svg)$/, loader: 'url-loader?prefix=img/&limit=5000' },
-      { test: /\.(woff|woff2|ttf|eot)$/, loader: 'url-loader?prefix=font/&limit=5000' },
+      loaders.css,
+      loaders.js,
+      loaders.json,
+      loaders.image,
+      loaders.font,
     ],
   },
 
   postcss: postcss,
+
+  externals: {
+    'react/lib/ReactContext': 'window',
+    'react/lib/ExecutionEnvironment': 'window',
+    'react/addons': true,
+  },
 };
