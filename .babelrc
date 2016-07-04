@@ -1,11 +1,6 @@
 {
   "presets": ["es2015", "react", "stage-0"],
   "env": {
-    "test": {
-      "plugins": [
-        ["__coverage__", { "ignore": "" }]
-      ]
-    },
     "production": {
       "plugins": ["transform-react-inline-elements", "transform-react-constant-elements"]
     }
