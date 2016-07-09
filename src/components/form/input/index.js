@@ -3,7 +3,7 @@ import React from 'react';
 function Input({
   type = 'text',
   placeholder = '',
-  fieldDefinition,
+  fieldDefinition = {},
   id,
 }) {
   const {
