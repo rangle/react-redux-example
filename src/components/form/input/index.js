@@ -29,7 +29,7 @@ function Input({
 Input.propTypes = {
   type: React.PropTypes.string,
   placeholder: React.PropTypes.string,
-  fieldDefinition: React.PropTypes.object.isRequired,
+  fieldDefinition: React.PropTypes.object,
   id: React.PropTypes.string,
 };
 
