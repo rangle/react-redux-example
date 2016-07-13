@@ -5,7 +5,7 @@ Resource    rs_browserstack.robot
 
 *** Variables ***
 ${BROWSER.DELAY}     0
-${SELENIUM.DELAY}    0
+${SELENIUM.DELAY}    0.2
 ${TOTAL WAIT}        10s
 ${RETRY EVERY}       2s
 # ${REMOTE_CHROME_DRIVER_URL} is where chrome driver 2.3 is running as setup in circle.yml file

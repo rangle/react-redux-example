@@ -17,12 +17,8 @@ test:
     - npm run build
     - npm start:
         background: true
-    # DOWNLOAD AND USE CHROME DRIVER 2.22
-    #- curl -O https://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip
-    #- unzip ./chromedriver_linux64.zip
-    #- rm ./chromedriver_linux64.zip
     # kill all running chromedriver 
-    #- killall chromedriver
+    - killall chromedriver
     # start the chromedriver on port 9515
     - chromedriver --port=9515 &> ./e2e/robot/results/chromedriver.txt:
         background: true
