@@ -17,6 +17,16 @@ test:
     - npm run build
     - npm start:
         background: true
+    # DOWNLOAD AND USE CHROME DRIVER 2.22
+    - curl -O https://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip
+    - unzip ./chromedriver_linux64.zip
+    - rm ./chromedriver_linux64.zip
+    - mkdir 
+    # kill all running chromedriver 
+    - killall chromedriver
+    # start the chromedriver on port 9515
+    - ./chromedriver --port=9515 &> ./e2e/robot/results/chromedriver.txt:
+        background: true
     #uncomment when running on browser stack using http://localhost
     #DON'T FORGET TO REPLACE THE BROWSERSTACK KEY
     # download and unzip browserstack local client

@@ -8,12 +8,14 @@ ${BROWSER.DELAY}     0
 ${SELENIUM.DELAY}    0
 ${TOTAL WAIT}        10s
 ${RETRY EVERY}       2s
+# ${REMOTE_CHROME_DRIVER_URL} is where chrome driver 2.3 is running as setup in circle.yml file
+${REMOTE_CHROME_DRIVER_URL}    http://localhost:9515
 
 *** Keywords ***
 Open Browser To Page
     [Arguments]    ${url}    ${browser}=Chrome    ${browser delay}=${BROWSER.DELAY}    ${selenium delay}=${SELENIUM.DELAY}
-    ${BROWSERSTACK.ENABLE}=    Convert To Boolean    ${BROWSERSTACK.ENABLED
-    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${FALSE}    Open Browser    ${url}    browser=${browser}
+    ${BROWSERSTACK.ENABLED}=    Convert To Boolean    ${BROWSERSTACK.ENABLED}
+    Run Keyword If    ${BROWSERSTACK.ENABLED} == ${FALSE}    Open Browser    ${url}    browser=${browser}    remote_url=${REMOTE_CHROME_DRIVER_URL}
     Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    BrowserStack Run On Desktop    ${url}
     Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' != 'DESKTOP'    BrowserStack Run On Mobile    ${url}
     Run Keyword If    ${BROWSERSTACK.ENABLED} == ${TRUE} and '${BROWSERSTACK.PLATFORM}' == 'DESKTOP'    Maximize Browser Window
