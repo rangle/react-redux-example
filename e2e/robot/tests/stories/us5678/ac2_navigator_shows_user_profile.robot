@@ -16,6 +16,7 @@ ${BROWSER}    Chrome
 01 Super Dave         admin       superuser       Super Dave
 02 Guest Visitor      guest       letmein         Guest Visitor
 03 John Doe           user        pass            John Doe
+    [Tags]    Smoke
 04 Alice Carrol       alice       x               Alice Carrol
 
 *** Keywords ***
