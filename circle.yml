@@ -17,8 +17,6 @@ test:
     - npm run build
     - npm start:
         background: true
-    # kill all running chromedriver 
-    - killall chromedriver
     # start the chromedriver on port 9515
     - chromedriver --port=9515 &> ./e2e/robot/results/chromedriver.txt:
         background: true
