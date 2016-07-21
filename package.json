@@ -109,6 +109,8 @@
     "style-loader": "^0.13.0",
     "stylelint": "^6.8.0",
     "stylelint-webpack-plugin": "^0.2.0",
+    "transit-immutable-js": "^0.6.0",
+    "transit-js": "^0.8.846",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.14.1",
