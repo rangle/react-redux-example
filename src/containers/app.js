@@ -48,7 +48,7 @@ function App({ children, session, login, logout }) {
         <NavigatorItem isVisible={ isLoggedIn }>
           <Link to="/about">About Us</Link>
         </NavigatorItem>
-        <div className="flex flex-auto"></div>
+        <div className="flex flex-auto" />
         <NavigatorItem isVisible={ isLoggedIn } mr>
           <div data-testid="user-profile" className="h3">{ `${ firstName } ${ lastName }` }</div>
         </NavigatorItem>
