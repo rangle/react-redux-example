@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { increment, decrement } from '../actions/counter';
+import { counterActions } from '../actions';
 
 import Counter from '../components/counter';
 import Container from '../components/container';
@@ -12,33 +12,26 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    increaseCounter: () => dispatch(increment()),
-    decreaseCounter: () => dispatch(decrement()),
-  };
-}
-
-function CounterPage({ counter, increaseCounter, decreaseCounter }) {
+function CounterPage({ counter, increment, decrement }) {
   return (
     <Container testid="counter" size={2} center>
       <h2 data-testid="counter-heading" className="center caps" id="qa-counter-heading">Counter</h2>
 
       <Counter
         counter={ counter }
-        increment={ increaseCounter }
-        decrement={ decreaseCounter } />
+        increment={ increment }
+        decrement={ decrement } />
     </Container>
   );
 }
 
 CounterPage.propTypes = {
   counter: React.PropTypes.number,
-  increaseCounter: React.PropTypes.func,
-  decreaseCounter: React.PropTypes.func,
+  increment: React.PropTypes.func,
+  decrement: React.PropTypes.func,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { ...counterActions }
 )(CounterPage);

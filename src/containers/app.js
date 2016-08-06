@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { loginUser, logoutUser } from '../actions/session';
-
+import { sessionActions } from '../actions';
+import { SESSION } from '../constants';
 import { Link } from 'react-router';
 import Button from '../components/button';
 import Content from '../components/content';
@@ -15,17 +14,11 @@ function mapStateToProps(state) {
   return {
     session: state.session,
     router: state.router,
+    request: state.request,
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    login: () => dispatch(loginUser()),
-    logout: () => dispatch(logoutUser()),
-  };
-}
-
-function App({ children, session, login, logout }) {
+function App({ children, session, login, logout, request }) {
   const token = session.get('token', false);
   const isLoggedIn = token && token !== null && typeof token !== 'undefined';
   const firstName = session.getIn(['user', 'first'], '');
@@ -35,8 +28,8 @@ function App({ children, session, login, logout }) {
     <div>
       <LoginModal
         onSubmit={ login }
-        isPending={ session.get('isLoading', false) }
-        hasError={ session.get('hasError', false) }
+        isPending={ request.getIn(['waiting', SESSION.LOGIN]) || false }
+        hasError={ request.getIn(['errors', SESSION.LOGIN]) ? true : false }
         isVisible={ !isLoggedIn } />
       <Navigator testid="navigator">
         <NavigatorItem mr>
@@ -70,9 +63,10 @@ App.propTypes = {
   session: React.PropTypes.object,
   login: React.PropTypes.func,
   logout: React.PropTypes.func,
+  request: React.PropTypes.object,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  { ...sessionActions },
 )(App);

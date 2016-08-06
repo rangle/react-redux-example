@@ -36,7 +36,12 @@ function LoginForm({
   return (
     <Form handleSubmit={ handleSubmit }>
       <Alert data-testid="alert-loading" isVisible={ isPending }>Loading...</Alert>
-      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
+      <Alert data-testid="alert-error"
+        id="qa-alert"
+        isVisible={ hasError }
+        status="error">
+        The username or password you have entered is invalid.
+      </Alert>
 
       <FormGroup testid="login-username">
         <FormLabel id="qa-uname-label">Username</FormLabel>
@@ -70,7 +75,7 @@ LoginForm.propTypes = {
   handleSubmit: React.PropTypes.func.isRequired,
   resetForm: React.PropTypes.func.isRequired,
   isPending: React.PropTypes.bool.isRequired,
-  hasError: React.PropTypes.bool.isRequired,
+  hasError: React.PropTypes.bool,
   fields: React.PropTypes.object.isRequired,
 };
 

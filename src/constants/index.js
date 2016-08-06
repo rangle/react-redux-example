@@ -1,9 +1,20 @@
-export const INCREMENT_COUNTER = 'App/INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'App/DECREMENT_COUNTER';
+export const REQUEST = {
+  START: 'App/REQUEST/START',
+  SUCCESS: 'App/REQUEST/SUCCESS',
+  ERROR: 'App/REQUEST/ERROR',
+};
 
-export const LOGIN_USER_PENDING = 'App/LOGIN_USER_PENDING';
-export const LOGIN_USER_SUCCESS = 'App/LOGIN_USER_SUCCESS';
-export const LOGIN_USER_ERROR = 'App/LOGIN_USER_ERROR';
+export const SESSION = {
+  LOGIN: 'App/SESSION/LOGIN',
+  LOGIN_SUCCESS: 'App/SESSION/LOGIN_SUCCESS',
+  LOGOUT: 'App/SESSION/LOGOUT',
+};
 
-export const LOGOUT_USER = 'App/LOGOUT_USER';
-export const FORM_RESET = 'redux-form/RESET';
+export const COUNTER = {
+  INCREMENT: 'App/COUNTER/INCREMENT',
+  DECREMENT: 'App/COUNTER/DECREMENT',
+};
+
+export const REDUX_FORM = {
+  RESET: 'redux-form/RESET',
+};

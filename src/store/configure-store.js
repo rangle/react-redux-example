@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import logger from './logger';
 import rootReducer from '../reducers';
+import epicMiddleware from '../epics';
 
 function configureStore(initialState) {
   const store = compose(
@@ -23,6 +24,7 @@ function _getMiddleware() {
     routerMiddleware(browserHistory),
     promiseMiddleware,
     thunk,
+    epicMiddleware,
   ];
 
   if (__DEV__) {
