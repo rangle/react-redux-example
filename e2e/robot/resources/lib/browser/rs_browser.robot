@@ -24,11 +24,16 @@ Open Browser To Page
     Set Browser Delay    ${browser delay}    ${selenium delay}
 
 Start Browser With Timeout
+    [Documentation]    This keyword does the following:
+    ...                1) close all browsers
+    ...                2) launch the brower to a blank page
+    ...                2) set page load timeout
+    ...                3) navigate to desired url
+    ...                4) start again if step 3 fails
     [Arguments]    ${url}    ${browser}    ${load timeout}    ${remote driver url}
     ${loaded}=    Set Variable    ${FALSE}
     : FOR    ${try}    IN RANGE    3
-    \    Close All Browsers
-    \    Run Keyword And Ignore Error    Open Browser    ${EMPTY}    browser=${browser}    remote_url=${remote driver url}
+    \    Open Browser    data:,    browser=${browser}    remote_url=${remote driver url}
     \    Sleep    1
     \    ${total timeout}=    Evaluate    ${load timeout} * ${try + 1}
     \    Log    Attempt number ${try} to load ${url} with timeout of ${total timeout}!
@@ -38,6 +43,7 @@ Start Browser With Timeout
     \    ${loaded}=    Run Keyword And Return Status    Go To    ${url}
     \    Exit For Loop If    ${loaded}
     \    Log To Console    FAILED TO LOAD BROWSER attempt ${try}
+    \    Close All Browsers
 
 Input Text Flex
     [Documentation]    This will type out desired text a character at a time. This is required for textfield which are linked to form validation in reaction which cause some events to be overwritten.
