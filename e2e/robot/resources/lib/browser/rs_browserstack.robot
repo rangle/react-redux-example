@@ -4,7 +4,7 @@ Library    Collections
 
 *** Variables ***
 ${BROWSERSTACK.PLATFORM}              DESKTOP
-${BROWSERSTACK.ENABLE}                ${FALSE}
+${BROWSERSTACK.ENABLED}                ${FALSE}
 ${BROWSERSTACK.USERNAME}
 ${BROWSERSTACK.KEY}
 ${BROWSERSTACK.REMOTE URL}            http://${BROWSERSTACK.USERNAME}:${BROWSERSTACK.KEY}@hub.browserstack.com/wd/hub
