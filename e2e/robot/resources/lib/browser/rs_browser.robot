@@ -6,7 +6,7 @@ Resource         rs_browserstack.robot
 *** Variables ***
 ${BROWSER.DELAY}           0
 ${SELENIUM.DELAY}          0.2
-${BROWSER.LOAD.TIMEOUT}    120
+${BROWSER.LOAD.TIMEOUT}    60
 ${TOTAL WAIT}              10s
 ${RETRY EVERY}             2s
 # ${REMOTE_CHROME_DRIVER_URL} is where chrome driver 2.3 is running as setup in circle.yml file
@@ -26,9 +26,10 @@ Open Browser To Page
 Start Browser With Timeout
     [Arguments]    ${url}    ${browser}    ${load timeout}    ${remote driver url}
     ${loaded}=    Set Variable    ${FALSE}
-    Run Keyword And Ignore Error    Open Browser    ${EMPTY}    browser=${browser}    remote_url=${remote driver url}
-    Sleep    1
     : FOR    ${try}    IN RANGE    3
+    \    Close All Browsers
+    \    Run Keyword And Ignore Error    Open Browser    ${EMPTY}    browser=${browser}    remote_url=${remote driver url}
+    \    Sleep    1
     \    ${total timeout}=    Evaluate    ${load timeout} * ${try + 1}
     \    Log    Attempt number ${try} to load ${url} with timeout of ${total timeout}!
     \    ${body}=    Get Web Element    css=body
@@ -36,6 +37,7 @@ Start Browser With Timeout
     \    Call Method    ${driver}    set_page_load_timeout    ${total timeout}
     \    ${loaded}=    Run Keyword And Return Status    Go To    ${url}
     \    Exit For Loop If    ${loaded}
+    \    Log To Console    FAILED TO LOAD BROWSER attempt ${try}
 
 Input Text Flex
     [Documentation]    This will type out desired text a character at a time. This is required for textfield which are linked to form validation in reaction which cause some events to be overwritten.
