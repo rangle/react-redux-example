@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { modal } from './modal.css';
 
 function ModalContent({ children }) {
-  const classDef = classNames('p2', 'z2', 'bg-white', 'relative', modal);
+  const classDef = classNames('p2', 'z2', 'relative', modal);
 
   return (
     <div className={ classDef }>
