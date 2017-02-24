@@ -13,7 +13,7 @@ function Alert({
   isVisible,
   status = 'info',
   testid = 'alert-dialog',
-  ...props,
+  ...props
 }) {
   const alertClasses = classNames(['p2', 'bold'], {
     block: isVisible,
