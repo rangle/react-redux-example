@@ -9,7 +9,7 @@ function FormLabel({ children }) {
 }
 
 FormLabel.propTypes = {
-  children: React.PropTypes.node,
+  children: React.PropTypes.node
 };
 
 export default FormLabel;

@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   session,
   counter,
   routing: routerReducer,
-  form: formReducer,
+  form: formReducer
 });
 
 export default rootReducer;

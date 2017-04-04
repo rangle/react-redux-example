@@ -4,13 +4,13 @@ function Input({
   type = 'text',
   placeholder = '',
   fieldDefinition = {},
-  id,
+  id
 }) {
   const {
     value,
     onBlur,
     onChange,
-    onFocus,
+    onFocus
   } = fieldDefinition;
 
   return (
@@ -30,7 +30,7 @@ Input.propTypes = {
   type: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   fieldDefinition: React.PropTypes.object,
-  id: React.PropTypes.string,
+  id: React.PropTypes.string
 };
 
 export default Input;

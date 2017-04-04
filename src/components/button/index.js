@@ -6,7 +6,7 @@ function Button({
   className,
   type = 'button',
   onClick,
-  ...props,
+  ...props
 }) {
   const buttonClasses = classNames('btn', 'btn-primary', className);
 
@@ -25,7 +25,7 @@ Button.propTypes = {
   children: React.PropTypes.node.isRequired,
   className: React.PropTypes.string,
   type: React.PropTypes.oneOf(['button', 'submit', 'reset']),
-  onClick: React.PropTypes.func,
+  onClick: React.PropTypes.func
 };
 
 export default Button;

@@ -17,7 +17,7 @@ function Form({ children, handleSubmit }) {
 
 Form.propTypes = {
   children: React.PropTypes.node,
-  handleSubmit: React.PropTypes.func,
+  handleSubmit: React.PropTypes.func
 };
 
 export default Form;

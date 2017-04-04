@@ -7,7 +7,7 @@ import Input from './index';
 describe('Input', () => {
   it('should create an input', () => {
     const props = {
-      placeholder: 'sample placeholder',
+      placeholder: 'sample placeholder'
     };
 
     const wrapper = render(

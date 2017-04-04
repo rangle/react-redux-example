@@ -25,7 +25,7 @@ Counter.propTypes = {
   counter: React.PropTypes.number,
   increment: React.PropTypes.func,
   decrement: React.PropTypes.func,
-  testid: React.PropTypes.func,
+  testid: React.PropTypes.func
 };
 
 export default Counter;
