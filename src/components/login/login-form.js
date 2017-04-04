@@ -30,8 +30,8 @@ function LoginForm({
   hasError,
   fields: {
     username,
-    password,
-  },
+    password
+  }
 }) {
   return (
     <Form handleSubmit={ handleSubmit }>
@@ -71,14 +71,14 @@ LoginForm.propTypes = {
   resetForm: React.PropTypes.func.isRequired,
   isPending: React.PropTypes.bool.isRequired,
   hasError: React.PropTypes.bool.isRequired,
-  fields: React.PropTypes.object.isRequired,
+  fields: React.PropTypes.object.isRequired
 };
 
 export default reduxForm({
   form: 'login',
   fields: [
     'username',
-    'password',
+    'password'
   ],
-  validate,
+  validate
 })(LoginForm);

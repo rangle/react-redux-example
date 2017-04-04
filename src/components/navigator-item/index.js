@@ -6,12 +6,12 @@ function NavigatorItem({
   isVisible = true,
   mr = false,
   ml = false,
-  ...props,
+  ...props
 }) {
   const navItemClasses = classNames('truncate', {
     hide: !isVisible,
     mr2: mr,
-    ml2: ml,
+    ml2: ml
   });
 
   return (
@@ -26,7 +26,7 @@ NavigatorItem.propTypes = {
   isVisible: React.PropTypes.bool,
   mr: React.PropTypes.bool,
   ml: React.PropTypes.bool,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default NavigatorItem;

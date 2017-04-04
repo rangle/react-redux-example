@@ -10,7 +10,7 @@ function Navigator({ children, ...props }) {
 
 Navigator.propTypes = {
   children: React.PropTypes.node,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default Navigator;

@@ -16,7 +16,7 @@ function getEntrySources(sources) {
 
 module.exports = {
   entry: {
-    app: getEntrySources(['./src/index.js']),
+    app: getEntrySources(['./src/index.js'])
   },
 
   output: {
@@ -24,7 +24,7 @@ module.exports = {
     filename: '[name].[hash].js',
     publicPath: '/',
     sourceMapFilename: '[name].[hash].js.map',
-    chunkFilename: '[id].chunk.js',
+    chunkFilename: '[id].chunk.js'
   },
 
   devtool: !devmode ? 'source-map' : 'inline-source-map',
@@ -34,20 +34,20 @@ module.exports = {
   devServer: {
     historyApiFallback: { index: '/' },
     proxy: Object.assign({}, proxy(), { '/api/*': 'http://localhost:3000' }),
-    inline: true,
+    inline: true
   },
 
   module: {
     preLoaders: [
-      loaders.eslint,
+      loaders.eslint
     ],
     loaders: [
       loaders.css,
       loaders.js,
       loaders.json,
       loaders.image,
-      loaders.font,
-    ],
+      loaders.font
+    ]
   },
 
   postcss: postcss,
@@ -55,6 +55,6 @@ module.exports = {
   externals: {
     'react/lib/ReactContext': 'window',
     'react/lib/ExecutionEnvironment': 'window',
-    'react/addons': true,
-  },
+    'react/addons': true
+  }
 };

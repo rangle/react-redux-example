@@ -2,7 +2,7 @@ import { INCREMENT_COUNTER, DECREMENT_COUNTER, LOGOUT_USER } from '../constants'
 import { fromJS } from 'immutable';
 
 const INITIAL_STATE = fromJS({
-  count: 0,
+  count: 0
 });
 
 function counterReducer(state = INITIAL_STATE, action = {}) {

@@ -10,7 +10,7 @@ function Content({ children, isVisible }) {
 
 Content.propTypes = {
   children: React.PropTypes.node,
-  isVisible: React.PropTypes.bool,
+  isVisible: React.PropTypes.bool
 };
 
 export default Content;

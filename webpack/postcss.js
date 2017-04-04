@@ -3,17 +3,17 @@ const webpack = require('webpack');
 const postcssBasePlugins = [
   require('postcss-modules-local-by-default'),
   require('postcss-import')({
-    addDependencyTo: webpack,
+    addDependencyTo: webpack
   }),
-  require('postcss-cssnext'),
+  require('postcss-cssnext')
 ];
 const postcssDevPlugins = [];
 const postcssProdPlugins = [
   require('cssnano')({
     safe: true,
     sourcemap: true,
-    autoprefixer: false,
-  }),
+    autoprefixer: false
+  })
 ];
 
 const postcssPlugins = postcssBasePlugins

@@ -5,7 +5,7 @@ describe('isPromise', () => {
     const promise = new Promise((resolve) => resolve(true));
 
     const payload = {
-      promise,
+      promise
     };
 
     expect(isPromise(payload)).toBe(true);

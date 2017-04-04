@@ -16,6 +16,7 @@
     "lint": "npm run lint-js && npm run lint-css",
     "lint-css": "stylelint './src/**/*.css'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
+    "lint-js-fix": "eslint '**/*.js' --fix --ignore-path .gitignore",
     "postinstall": "npm run build",
     "start": "cross-env NODE_ENV=production node --use_strict server/node-server.js",
     "pretest": "npm run clean coverage/ && npm run lint",

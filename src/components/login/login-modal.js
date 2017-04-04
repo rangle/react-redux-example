@@ -22,7 +22,7 @@ LoginModal.propTypes = {
   isVisible: React.PropTypes.bool,
   isPending: React.PropTypes.bool,
   hasError: React.PropTypes.bool,
-  onSubmit: React.PropTypes.func,
+  onSubmit: React.PropTypes.func
 };
 
 export default LoginModal;

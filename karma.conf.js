@@ -12,7 +12,7 @@ module.exports = (config) => {
     frameworks: [
       'source-map-support',
       'jasmine',
-      'sinon',
+      'sinon'
     ],
 
     plugins: [
@@ -24,18 +24,18 @@ module.exports = (config) => {
       'karma-sourcemap-loader',
       'karma-spec-reporter',
       'karma-chrome-launcher',
-      'karma-remap-istanbul',
+      'karma-remap-istanbul'
     ],
 
     files: [
-      './src/tests.entry.js',
+      './src/tests.entry.js'
     ],
 
     preprocessors: {
       './src/tests.entry.js': [
         'webpack',
-        'sourcemap',
-      ],
+        'sourcemap'
+      ]
     },
 
     webpack: Object.assign({}, webpack, {
@@ -47,19 +47,19 @@ module.exports = (config) => {
         loaders: combinedLoaders(),
         postLoaders: config.singleRun
           ? [ loaders.istanbulInstrumenter ]
-          : [ ],
+          : [ ]
       },
       stats: {
         colors: true,
-        reasons: true,
+        reasons: true
       },
       debug: config.singleRun ? false : true,
       plugins,
-      postcss: postcssInit,
+      postcss: postcssInit
     }),
 
     webpackMiddleware: {
-      noInfo: true, // prevent console spamming when running in Karma!
+      noInfo: true // prevent console spamming when running in Karma!
     },
 
     reporters: ['spec']
@@ -69,20 +69,20 @@ module.exports = (config) => {
     remapIstanbulReporter: {
       src: 'coverage/chrome/coverage-final.json',
       reports: {
-        html: 'coverage',
+        html: 'coverage'
       },
       timeoutNotCreated: 2000,
-      timeoutNoMoreFiles: 2000,
+      timeoutNoMoreFiles: 2000
     },
 
     coverageReporter: {
       reporters: [
-        { type: 'json' },
+        { type: 'json' }
       ],
       dir: './coverage/',
       subdir: (browser) => {
         return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
-      },
+      }
     },
 
     port: 9999,
@@ -90,7 +90,7 @@ module.exports = (config) => {
     logLevel: config.singleRun ? config.LOG_INFO : config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['Chrome'], // Alternatively: 'PhantomJS'
-    captureTimeout: 6000,
+    captureTimeout: 6000
   });
 };
 
