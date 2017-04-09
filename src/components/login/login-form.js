@@ -36,7 +36,9 @@ function LoginForm({
   return (
     <Form handleSubmit={ handleSubmit }>
       <Alert data-testid="alert-loading" isVisible={ isPending }>Loading...</Alert>
-      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
+      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">
+        Invalid username and password
+      </Alert>
 
       <FormGroup testid="login-username">
         <FormLabel id="qa-uname-label">Username</FormLabel>
