@@ -6,7 +6,7 @@ import {
   LOGIN_USER_PENDING,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
-  LOGOUT_USER,
+  LOGOUT_USER
 } from '../../src/constants/index';
 
 import { Map } from 'immutable';

@@ -14,7 +14,7 @@ function FormError({ children, isVisible, testid = 'form-error', ...props}) {
 FormError.propTypes = {
   children: React.PropTypes.node,
   isVisible: React.PropTypes.bool,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default FormError;

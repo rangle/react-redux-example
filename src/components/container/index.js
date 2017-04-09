@@ -7,7 +7,7 @@ function Container({ children, size = 1, center, ...props }) {
     'max-width-2': size === 2,
     'max-width-3': size === 3,
     'max-width-4': size === 4,
-    'mx-auto': center,
+    'mx-auto': center
   });
 
   return (
@@ -21,7 +21,7 @@ Container.propTypes = {
   children: React.PropTypes.node,
   size: React.PropTypes.oneOf([1, 2, 3, 4]),
   center: React.PropTypes.bool,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default Container;

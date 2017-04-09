@@ -16,7 +16,7 @@ export default function promiseMiddleware({ dispatch }) {
     dispatch({
       type: PENDING,
       ...data && { payload: data },
-      ...meta && { meta },
+      ...meta && { meta }
     });
 
     /**
@@ -28,14 +28,14 @@ export default function promiseMiddleware({ dispatch }) {
         dispatch({
           type: FULFILLED,
           payload: result,
-          meta,
+          meta
         });
       },
       error => {
         dispatch({
           type: REJECTED,
           payload: error,
-          meta,
+          meta
         });
       }
     );

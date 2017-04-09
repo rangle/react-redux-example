@@ -12,5 +12,5 @@ export default createLogger({
            type !== 'redux-form/CHANGE' &&
            type !== 'redux-form/FOCUS' &&
            type !== 'redux-form/TOUCH';
-  },
+  }
 });

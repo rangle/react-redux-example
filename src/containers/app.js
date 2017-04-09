@@ -14,14 +14,14 @@ import NavigatorItem from '../components/navigator-item';
 function mapStateToProps(state) {
   return {
     session: state.session,
-    router: state.router,
+    router: state.router
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     login: () => dispatch(loginUser()),
-    logout: () => dispatch(logoutUser()),
+    logout: () => dispatch(logoutUser())
   };
 }
 
@@ -69,7 +69,7 @@ App.propTypes = {
   children: React.PropTypes.node,
   session: React.PropTypes.object,
   login: React.PropTypes.func,
-  logout: React.PropTypes.func,
+  logout: React.PropTypes.func
 };
 
 export default connect(

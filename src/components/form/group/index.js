@@ -10,7 +10,7 @@ function FormGroup({ children, testid, ...props}) {
 
 FormGroup.propTypes = {
   children: React.PropTypes.node,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default FormGroup;

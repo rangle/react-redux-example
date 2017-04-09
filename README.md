@@ -1,5 +1,4 @@
-[![Circle CI](https://circleci.com/gh/rangle/react-redux-starter.svg?style=svg)](https://circleci.com/gh/rangle/react-redux-starter) [![Stories in Ready](https://badge.waffle.io/rangle/rangle-starter.png?label=ready&title=Ready)](https://waffle.io/rangle/rangle-starter)
-
+[![Circle CI](https://circleci.com/gh/Kiran-Rao/react-redux-example.svg?style=shield&circle-token=873caf43986abd16fc3a9a36e1bacff1b17a9c70)](https://circleci.com/gh/Kiran-Rao/react-redux-example)
 # react-redux-starter
 
 > Rangle.io official React + Redux starter

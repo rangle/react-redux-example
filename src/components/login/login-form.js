@@ -30,13 +30,15 @@ function LoginForm({
   hasError,
   fields: {
     username,
-    password,
-  },
+    password
+  }
 }) {
   return (
     <Form handleSubmit={ handleSubmit }>
       <Alert data-testid="alert-loading" isVisible={ isPending }>Loading...</Alert>
-      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">Invalid username and password</Alert>
+      <Alert data-testid="alert-error" id="qa-alert" isVisible={ hasError } status="error">
+        Invalid username and password
+      </Alert>
 
       <FormGroup testid="login-username">
         <FormLabel id="qa-uname-label">Username</FormLabel>
@@ -71,14 +73,14 @@ LoginForm.propTypes = {
   resetForm: React.PropTypes.func.isRequired,
   isPending: React.PropTypes.bool.isRequired,
   hasError: React.PropTypes.bool.isRequired,
-  fields: React.PropTypes.object.isRequired,
+  fields: React.PropTypes.object.isRequired
 };
 
 export default reduxForm({
   form: 'login',
   fields: [
     'username',
-    'password',
+    'password'
   ],
-  validate,
+  validate
 })(LoginForm);

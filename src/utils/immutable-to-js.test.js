@@ -8,16 +8,16 @@ describe('immutableToJS', () => {
       name: 'John',
       sons: [{
         name: 'Lill John',
-        age: 12,
+        age: 12
       }, {
         name: 'Big John',
-        age: 34,
-      }],
-    },
+        age: 34
+      }]
+    }
   };
 
   const stateWithImmutable = {
-    state: fromJS(mockState.state),
+    state: fromJS(mockState.state)
   };
 
   it('should ignore regular JS structures', () => {
