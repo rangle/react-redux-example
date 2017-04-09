@@ -22,7 +22,7 @@ function _getMiddleware() {
   let middleware = [
     routerMiddleware(browserHistory),
     promiseMiddleware,
-    thunk,
+    thunk
   ];
 
   if (__DEV__) {
@@ -34,7 +34,7 @@ function _getMiddleware() {
 
 function _getEnhancers() {
   let enhancers = [
-    persistState('session', _getStorageConfig()),
+    persistState('session', _getStorageConfig())
   ];
 
   if (__DEV__ && window.devToolsExtension) {
@@ -61,8 +61,8 @@ function _getStorageConfig() {
         JSON.stringify(store.session.toJS()) : store;
     },
     deserialize: (state) => ({
-      session: state ? fromJS(JSON.parse(state)) : fromJS({}),
-    }),
+      session: state ? fromJS(JSON.parse(state)) : fromJS({})
+    })
   };
 }
 

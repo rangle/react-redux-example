@@ -8,14 +8,14 @@ import Container from '../components/container';
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter.get('count'),
+    counter: state.counter.get('count')
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     increaseCounter: () => dispatch(increment()),
-    decreaseCounter: () => dispatch(decrement()),
+    decreaseCounter: () => dispatch(decrement())
   };
 }
 
@@ -35,7 +35,7 @@ function CounterPage({ counter, increaseCounter, decreaseCounter }) {
 CounterPage.propTypes = {
   counter: React.PropTypes.number,
   increaseCounter: React.PropTypes.func,
-  decreaseCounter: React.PropTypes.func,
+  decreaseCounter: React.PropTypes.func
 };
 
 export default connect(

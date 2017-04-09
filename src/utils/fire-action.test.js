@@ -3,7 +3,7 @@ import assert from 'assert';
 
 describe('fireAction', () => {
   const INITIAL_STATE = {
-    test: false,
+    test: false
   };
 
   const mockReducer = (state = INITIAL_STATE, action) => {

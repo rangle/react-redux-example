@@ -3,7 +3,7 @@ import React from 'react';
 function Modal({ isVisible, children, ...props }) {
   const styles = {
     visibility: isVisible ? 'visible' : 'hidden',
-    opacity: isVisible ? 1 : 0,
+    opacity: isVisible ? 1 : 0
   };
 
   return (
@@ -17,7 +17,7 @@ function Modal({ isVisible, children, ...props }) {
 Modal.propTypes = {
   isVisible: React.PropTypes.bool,
   children: React.PropTypes.node,
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default Modal;

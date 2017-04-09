@@ -28,7 +28,7 @@ module.exports = {
         if (authorized.length > 0) {
           resolve( {
             data: {
-              msg: 'LOGIN SUCCESSFUL',
+              msg: 'LOGIN SUCCESSFUL'
             },
             meta: {
               id: authorized[0].id,
@@ -36,9 +36,9 @@ module.exports = {
               expires: '2020-01-01',
               profile: {
                 first: authorized[0].First,
-                last: authorized[0].Last,
-              },
-            },
+                last: authorized[0].Last
+              }
+            }
           });
         } else {
           reject({ message: 'LOGIN FAILED' });
@@ -55,5 +55,5 @@ module.exports = {
         return (user.id === id);
       });
     return results.length > 0 ? results[0] : {};
-  },
+  }
 };

@@ -13,7 +13,7 @@ function ModalContent({ children }) {
 }
 
 ModalContent.propTypes = {
-  children: React.PropTypes.node,
+  children: React.PropTypes.node
 };
 
 export default ModalContent;

@@ -5,7 +5,7 @@ const statusClasses = {
   info: 'bg-blue white',
   warning: 'bg-yellow black',
   success: 'bg-green black',
-  error: 'bg-red white',
+  error: 'bg-red white'
 };
 
 function Alert({
@@ -13,12 +13,12 @@ function Alert({
   isVisible,
   status = 'info',
   testid = 'alert-dialog',
-  ...props,
+  ...props
 }) {
   const alertClasses = classNames(['p2', 'bold'], {
     block: isVisible,
     hide: !isVisible,
-    [statusClasses[status]]: true,
+    [statusClasses[status]]: true
   });
 
   return (
@@ -35,7 +35,7 @@ Alert.propTypes = {
   children: React.PropTypes.node,
   isVisible: React.PropTypes.bool,
   status: React.PropTypes.oneOf(['info', 'warning', 'success', 'error']),
-  testid: React.PropTypes.string,
+  testid: React.PropTypes.string
 };
 
 export default Alert;
