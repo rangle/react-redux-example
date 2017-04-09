@@ -104,14 +104,10 @@
 /**
  * Style
  */
-    "indent": [2, 2],
     "brace-style": [2,
       "1tbs", {
       "allowSingleLine": true
     }],
-    "quotes": [
-      2, "single", "avoid-escape"
-    ],
     "camelcase": [2, {
       "properties": "never"
     }],
@@ -122,14 +118,18 @@
     "comma-style": [2, "last"],
     "eol-last": 2,
     "func-names": 1,
+    "indent": [2, 2],
     "key-spacing": [2, {
         "beforeColon": false,
         "afterColon": true
     }],
+    "keyword-spacing": 2,
+    "max-len": [2, 100],
     "new-cap": [2, {
       "newIsCap": true,
       "capIsNew": false
     }],
+    "no-extra-parens": [2, "functions"],
     "no-multiple-empty-lines": [2, {
       "max": 2
     }],
@@ -137,23 +137,25 @@
     "no-new-object": 2,
     "no-spaced-func": 2,
     "no-trailing-spaces": 2,
-    "no-extra-parens": [2, "functions"],
     "no-underscore-dangle": 0,
     "one-var": [2, "never"],
     "padded-blocks": [2, "never"],
+    "quotes": [
+      2, "single", "avoid-escape"
+    ],
     "semi": [2, "always"],
     "semi-spacing": [2, {
       "before": false,
       "after": true
     }],
-    "keyword-spacing": 2,
+
     "space-before-blocks": 2,
     "space-before-function-paren": [2, "never"],
     "space-infix-ops": 2,
     "spaced-comment": 2,
 
 /**
- * JSX style
+ * React Style
  */
     "react/display-name": 0,
     "react/jsx-boolean-value": 2,

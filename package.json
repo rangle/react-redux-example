@@ -92,7 +92,6 @@
     "redux-localstorage": "^0.4.0",
     "redux-logger": "^2.1.4",
     "redux-thunk": "^2.0.1",
-    "require-hacker": "^2.1.2",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.0",
