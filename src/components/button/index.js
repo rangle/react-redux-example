@@ -6,7 +6,7 @@ function Button({
   className,
   type = 'button',
   onClick,
-  ...props,
+  ...props
 }) {
   const buttonClasses = classNames('btn', 'btn-primary', className);
 

@@ -6,7 +6,7 @@ function NavigatorItem({
   isVisible = true,
   mr = false,
   ml = false,
-  ...props,
+  ...props
 }) {
   const navItemClasses = classNames('truncate', {
     hide: !isVisible,
