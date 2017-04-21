@@ -33,7 +33,6 @@ ${VALID PASSWORD}    pass
     Verify No Login Error
 
 07 Valid Login Navigates To Counter Page
-    Login    ${VALID USERNAME}    ${VALID PASSWORD}
     Page Should Contain    Counter
 
 *** Keywords ***
